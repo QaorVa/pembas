@@ -30,8 +30,6 @@
     "<th>Returned Date</th>",
     "</tr>";
     include "connection.php";
-    $sql = "call loanBook($isbn, $readerId, $days)";
-    $query = $db->query($sql);
     $sql2 = "call loanHistory($readerId)";
     $query2 = $db->query($sql2);
     foreach ($query2 as $row) {
