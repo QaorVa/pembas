@@ -256,38 +256,66 @@
     <section class="content">
       <div class="container-fluid">
         <div class="col-md-12">
-          <div class="card-body">
-            <div class="row">
+          <div class="card">
+            <div class="">
               <div class="card-header">
-                <h1>Available Books</h1>
+                <h1 class="text-center">Available Books</h1>
               </div>
-              
-              <?php
-              echo '<table class="table table-bordered">', 
-                    "<tr>",
-                        "<th>ISBN</th>",
-                        "<th>title</th>",
-                        "<th>Author</th>",
-                        "<th>Category</th>",
-                        "<th>Publisher</th>",
-                        "<th>Year Published</th>",
-                        "<th>Copies available</th>",
-                    "</tr>";
-              include "connection.php";
-              $sql = "call bookAvail()";
-              $query = $db->query($sql);
-              foreach($query as $row) {
-                echo "<tr>",
-                        "<td>", $row['isbn'], "</td>",
-                        "<td>", $row['title'], "</td>",
-                        "<td>", $row['author'], "</td>",
-                        "<td>", $row['category'], "</td>",
-                        "<td>", $row['publisher'], "</td>",
-                        "<td>", $row['year_published'], "</td>",
-                        "<td>", $row['copies'], "</td>";
-              }
-              echo "</tr>", "</table>";
-              ?>
+              <div class="card-body p-0">
+                <div class="table-responsive">
+                  <?php
+                  echo '<table class="table m-0 text-center">', 
+                        "<tr>",
+                            "<th>ISBN</th>",
+                            "<th>title</th>",
+                            "<th>Author</th>",
+                            "<th>Category</th>",
+                            "<th>Publisher</th>",
+                            "<th>Year Published</th>",
+                            "<th>Copies available</th>",
+                        "</tr>";
+                  include "connection.php";
+                  $sql = "call bookAvail()";
+                  $query = $db->query($sql);
+                  foreach($query as $row) {
+                    echo "<tr>",
+                            "<td>", $row['isbn'], "</td>",
+                            "<td>", $row['title'], "</td>",
+                            "<td>", $row['author'], "</td>",
+                            "<td>", $row['category'], "</td>",
+                            "<td>", $row['publisher'], "</td>",
+                            "<td>", $row['year_published'], "</td>",
+                            "<td>", $row['copies'], "</td>";
+                  }
+                  echo "</tr>", "</table>";
+                  ?>
+                </div>
+              </div>
+            </div>
+          </div> <!-- card -->
+        </div>
+        
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h1 class="text-center">Pinjam Buku</h1>
+            </div>
+            <div class="card-body p-0">
+              <div class="table-responsive">
+                <table class="table m-0">
+                  <form action="loanBook.php" method="post">
+                    <tr>
+                        <th class="w-25"><h3>Enter ISBN</h3></th>
+                        <td class="w-50">
+                          <input type="number" name="isbn" class="form-control">
+                        </td>
+                        <td>
+                          <input type="submit" value="Loan a book" class="btn btn-primary">
+                        </td>
+                  </form>  
+                </table>
+              </div>
+
             </div>
           </div>
         </div>
@@ -336,7 +364,7 @@
 <script src="plugins/chart.js/Chart.min.js"></script>
 
 <!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
+<!-- <script src="dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="dist/js/pages/dashboard2.js"></script>
 </body>
