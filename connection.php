@@ -1,7 +1,2 @@
-
-
-    <?php
-
-    $db = mysqli_connect("localhost", "root", "", "proyekpembas");
-
-    ?>
+<?php
+$db = mysqli_connect("localhost", "root", "", "proyekpembas");
