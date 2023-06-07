@@ -22,26 +22,12 @@
     $readerId = $_SESSION['reader_id'];
     $isbn = $_POST['isbn'];
     $days = 7;
-    echo '<table class="table table-striped">',
-    "<tr>",
-    "<th>Loan ID</th>",
-    "<th>Book</th>",
-    "<th>Borrowed Date</th>",
-    "<th>Returned Date</th>",
-    "</tr>";
     include "connection.php";
     $sql = "call loanBook($isbn, $readerId, $days)";
     $query = $db->query($sql);
     $sql2 = "call loanHistory($readerId)";
     $query2 = $db->query($sql2);
-    foreach ($query2 as $row) {
-        echo "<tr>",
-        "<td>", $row['Loan_ID'], "</td>",
-        "<td>", $row['Book'], "</td>",
-        "<td>", $row['Borrowed'], "</td>",
-        "<td>", $row['Returned'], "</td>";
-    }
-    echo "</tr>", "</table>";
+    header("location:viewLoanHistoryProcess.php");
     ?>
     <script src="js/bootstrap.js"></script>
 </body>
