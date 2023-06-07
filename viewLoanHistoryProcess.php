@@ -20,8 +20,6 @@
     <?php
     session_start();
     $readerId = $_SESSION['reader_id'];
-    $isbn = $_POST['isbn'];
-    $days = 7;
     echo '<table class="table table-striped">',
     "<tr>",
     "<th>Loan ID</th>",
