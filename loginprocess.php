@@ -6,7 +6,7 @@ include "connection.php";
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-$masuk = mysqli_query($db, "SELECT * FROM reader WHERE email = '$email' AND passworded = '$password'");
+$masuk = mysqli_query($db, "SELECT * FROM reader WHERE email = '$email' AND password = '$password'");
 $kontol = mysqli_num_rows($masuk);
 
 if ($kontol > 0) {
