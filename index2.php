@@ -1,3 +1,15 @@
+<?php
+  include "connection.php";
+  session_start();
+  $readerId = $_SESSION['reader_id'];
+  $sqlName = "select name from reader where reader_Id = $readerId";
+  $result = $db->query($sqlName);
+  if ($result->num_rows == 1) {
+    $row = $result->fetch_assoc();
+    $name = $row["name"];
+  }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -182,6 +194,16 @@
         </div>
       </div> -->
 
+      <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block"><?php echo $name?></a>
+          </div>
+        </div>
+
         <!-- SidebarSearch Form -->
         <div class="form-inline">
           <div class="input-group" data-widget="sidebar-search">
@@ -215,17 +237,17 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="./index.html" class="nav-link">
+                  <a href="viewLoanHistoryProcess.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Dashboard v1</p>
+                    <p>Borrowed Books</p>
                   </a>
                 </li>
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a href="./index3.html" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Dashboard v3</p>
                   </a>
-                </li>
+                </li> -->
               </ul>
             </li>
             <!-- /.sidebar-menu -->
