@@ -5,6 +5,10 @@
     <?php
     include "connection.php";
     session_start();
+    if (!isset($_SESSION['reader_id'])) {
+      header("location: login.php");
+      exit;
+    }
     $readerId = $_SESSION['reader_id'];
     $sqlName = "select name from reader where reader_Id = $readerId";
     $result1 = $db->query($sqlName);
@@ -272,7 +276,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Loan A Book</li>
+                                <li class="breadcrumb-item active">Borrowed Books</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
