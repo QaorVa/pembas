@@ -96,7 +96,7 @@ while ($row = $queryBooks->fetch_assoc()) {
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="#" class="d-block"><?php echo $name ?></a>
+            <a href="profile.php" class="d-block"><?php echo $name ?></a>
           </div>
         </div>
 
@@ -235,7 +235,7 @@ while ($row = $queryBooks->fetch_assoc()) {
                             <?php endforeach; ?>
                           </select>
                         </td>
-                        
+
                       </tr>
                       <tr>
                         <th class="w-25">
