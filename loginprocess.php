@@ -18,5 +18,5 @@ if ($cek > 0) {
     $_SESSION['member_status'] = "login";
     header("location:index.php");
 } else {
-    header("location:login.php?alert=gagal");
+    echo '<script>alert("Invalid email or password"); window.location.href = "login.php";</script>';
 }
