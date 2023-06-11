@@ -1,6 +1,10 @@
 <?php
 include "connection.php";
 session_start();
+if (!isset($_SESSION['reader_id'])) {
+  header("location: login.php");
+  exit;
+}
 $readerId = $_SESSION['reader_id'];
 $sqlName = "select name from reader where reader_Id = $readerId";
 $result = $db->query($sqlName);
@@ -96,7 +100,7 @@ while ($row = $queryBooks->fetch_assoc()) {
             <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
-            <a href="profile.php" class="d-block"><?php echo $name ?></a>
+            <a href="#" class="d-block"><?php echo $name ?></a>
           </div>
         </div>
 
@@ -229,20 +233,21 @@ while ($row = $queryBooks->fetch_assoc()) {
                         </th>
                         <td class="w-50">
                           <select name="isbn" class="form-control">
-                            <option value="">-- Select Book Name --</option>
+                            <option value="" disabled selected>-- Select Book Name --</option>
                             <?php foreach ($books as $book) : ?>
                               <option value="<?php echo $book['isbn']; ?>"><?php echo $book['title']; ?></option>
                             <?php endforeach; ?>
                           </select>
                         </td>
-
+                        <td></td>
+                        
                       </tr>
                       <tr>
                         <th class="w-25">
                           <h3>Days</h3>
                         </th>
                         <td class="w-50">
-                          <input type="number" name="days" class="form-control">
+                          <input type="number" name="days" class="form-control" required>
                         </td>
                         <td>
                           <input type="submit" value="Loan a book" class="btn btn-primary">
