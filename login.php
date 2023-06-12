@@ -45,7 +45,9 @@
           </div>
           <div class="row">
             <div class="col-8">
-
+              <p class="mb-0">
+                <a href="register.html" class="text-center">Register a new membership</a>
+              </p>
             </div>
             <!-- /.col -->
             <div class="col-4">
@@ -67,11 +69,9 @@
 
         <!-- <p class="mb-1">
           <a href="forgot-password.html">I forgot my password</a>
-        </p>
-        <p class="mb-0">
-          <a href="register.html" class="text-center">Register a new membership</a>
-        </p>
-      </div> -->
+        </p> -->
+
+        <!-- </div> -->
         <!-- /.card-body -->
       </div>
       <!-- /.card -->
