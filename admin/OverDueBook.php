@@ -57,7 +57,61 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Buku yang belum dikembalikan</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <div class="row">
+                                    <section class="col-lg-12 col-lg-offset-1">
+                                        <div class="box box-info">
+                                            <div class="box-body">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered table-striped" id="table-datatable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>ISBN</th>
+                                                                <th>RETURN DATE</th>
+                                                                <th>READER NAME</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <?php
+                                                            include '../connection.php';
+                                                            $sql = "call overdueBook()";
+                                                            $query = $db->query($sql);
+                                                            while ($d = mysqli_fetch_array($query)) {
+                                                            ?>
+                                                                <tr>
+                                                                    <td><?php echo $d['isbn']; ?></td>
+                                                                    <td><?php echo $d['return_date']; ?></td>
+                                                                    <td><?php echo $d['reader_name']; ?></td>
+                                                                </tr>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
 
+                                        </div>
+                                    </section>
+                                    <!-- /.col -->
+                                </div>
+                                <!-- /.row -->
+                            </div>
+
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </section>
 
             <!-- content-main -->
 
