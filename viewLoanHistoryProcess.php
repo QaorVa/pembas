@@ -251,6 +251,12 @@
                     <p>Borrowed Books</p>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a href="viewFineHistory.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Fine History</p>
+                  </a>
+                </li>
                 <!-- <li class="nav-item">
                   <a href="./index.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
@@ -303,6 +309,7 @@
                     "<th>Book</th>",
                     "<th>Borrowed Date</th>",
                     "<th>Returned Date</th>",
+                    "<th></th>",
                     "</tr>";
                     include "connection.php";
                     $sql2 = "call loanHistory($readerId)";
@@ -313,6 +320,11 @@
                       "<td>", $row['Book'], "</td>",
                       "<td>", $row['Borrowed'], "</td>",
                       "<td>", $row['Returned'], "</td>";
+                      if($row['Returned'] = null) {
+                        echo "<td><button class='btn-sm btn-primary'><a class='text-light' href='returnProcess.php'>Return</a></button></td>";
+                      } else {
+                        echo "<td></td>";
+                      }
                     }
                     echo "</tr>", "</table>";
                     ?>

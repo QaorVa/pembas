@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in (v2)</title>
+  <title>Login | SI Perpustakaan</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -21,7 +21,7 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="index.html" class="h1"><b>Admin</b>LTE</a>
+        <h1 href="index.html" class="h1">SI Perpustakaan</h1>
       </div>
       <div class="card-body">
         <p class="login-box-msg">Sign in to start your session</p>
@@ -46,7 +46,7 @@
           <div class="row">
             <div class="col-8">
               <p class="mb-0">
-                <a href="register.html" class="text-center">Register a new membership</a>
+                <a href="register.php" class="text-center">Register a new membership</a>
               </p>
             </div>
             <!-- /.col -->

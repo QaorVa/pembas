@@ -131,7 +131,7 @@ while ($row = $queryBooks->fetch_assoc()) {
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="index.php" class="nav-link active">
+                  <a href="index.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Loan A Book</p>
                   </a>
@@ -143,7 +143,7 @@ while ($row = $queryBooks->fetch_assoc()) {
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="viewFineHistory.php" class="nav-link">
+                  <a href="viewFineHistory.php" class="nav-link active">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Fine History</p>
                   </a>
@@ -188,86 +188,42 @@ while ($row = $queryBooks->fetch_assoc()) {
             <div class="card">
               <div class="">
                 <div class="card-header">
-                  <h1 class="text-center">Available Books</h1>
+                  <h1 class="text-center">Your Fine History</h1>
                 </div>
                 <div class="card-body p-0">
                   <div class="table-responsive">
                     <?php
                     echo '<table class="table m-0 text-center">',
                     "<tr>",
-                    "<th>ISBN</th>",
-                    "<th>title</th>",
-                    "<th>Author</th>",
-                    "<th>Category</th>",
-                    "<th>Publisher</th>",
-                    "<th>Year Published</th>",
-                    "<th>Copies available</th>",
+                    "<th>Fine Date</th>",
+                    "<th>Amount</th>",
+                    "<th>Status</th>",
                     "</tr>";
                     include "connection.php";
-                    $sql = "call bookAvail()";
+                    $sql = "call readAllFine($readerId)";
                     $query = $db->query($sql);
-                    foreach ($query as $row) {
-                      echo "<tr>",
-                      "<td>", $row['isbn'], "</td>",
-                      "<td>", $row['title'], "</td>",
-                      "<td>", $row['author'], "</td>",
-                      "<td>", $row['category'], "</td>",
-                      "<td>", $row['publisher'], "</td>",
-                      "<td>", $row['year_published'], "</td>",
-                      "<td>", $row['copies'], "</td>";
+
+                    if($query->num_rows >0) {
+                        foreach ($query as $row) {
+                            echo "<tr>",
+                            "<td>", $row['fine_date'], "</td>",
+                            "<td>", $row['amount'], "</td>",
+                            "<td>", $row['paid'], "</td>",
+                            "</tr>";
+                          }
+                    } else {
+                        echo"<tr>",
+                        "<td></td>",
+                        "<td>-- No Fine History Found --</td>",
+                        "<td></td></tr>";
                     }
-                    echo "</tr>", "</table>";
+                    echo "</table>";
                     ?>
                   </div>
                 </div>
               </div>
             </div> <!-- card -->
           </div>
-
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h1 class="text-center">Borrow A Book</h1>
-              </div>
-              <div class="card-body p-0">
-                <div class="table-responsive">
-                  <table class="table m-0">
-                    <form action="loanBook.php" method="post">
-                      <tr>
-                        <th class="w-25">
-                          <h3>Enter Book Name</h3>
-                        </th>
-                        <td class="w-50">
-                          <select name="isbn" class="form-control">
-                            <option value="" disabled selected>-- Select Book Name --</option>
-                            <?php foreach ($books as $book) : ?>
-                              <option value="<?php echo $book['isbn']; ?>"><?php echo $book['title']; ?></option>
-                            <?php endforeach; ?>
-                          </select>
-                        </td>
-                        <td></td>
-
-                      </tr>
-                      <tr>
-                        <th class="w-25">
-                          <h3>Days</h3>
-                        </th>
-                        <td class="w-50">
-                          <input type="number" name="days" class="form-control" required>
-                        </td>
-                        <td>
-                          <input type="submit" value="Loan a book" class="btn btn-primary">
-                        </td>
-                      </tr>
-                    </form>
-                  </table>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-
         </div><!--/. container-fluid -->
       </section>
       <!-- /.content -->
