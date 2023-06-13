@@ -320,8 +320,8 @@
                       "<td>", $row['Book'], "</td>",
                       "<td>", $row['Borrowed'], "</td>",
                       "<td>", $row['Returned'], "</td>";
-                      if($row['Returned'] = null) {
-                        echo "<td><button class='btn-sm btn-primary'><a class='text-light' href='returnProcess.php'>Return</a></button></td>";
+                      if($row['Returned'] == null) {
+                        echo "<td><button class='btn-sm btn-primary'><a class='text-light' href='returnProcess.php?id=",$row['Loan_ID'],"'>Return</a></button></td>";
                       } else {
                         echo "<td></td>";
                       }
