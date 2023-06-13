@@ -195,9 +195,10 @@ while ($row = $queryBooks->fetch_assoc()) {
                     <?php
                     echo '<table class="table m-0 text-center">',
                     "<tr>",
-                    "<th>Fine Date</th>",
-                    "<th>Amount</th>",
-                    "<th>Status</th>",
+                    "<th >Fine Date</th>",
+                    "<th class='w-25'>Amount</th>",
+                    "<th class='w-25'>Paid?</th>",
+                    "<th style='width: 100px'></th>",
                     "</tr>";
                     include "connection.php";
                     $sql = "call readAllFine($readerId)";
@@ -208,7 +209,13 @@ while ($row = $queryBooks->fetch_assoc()) {
                             echo "<tr>",
                             "<td>", $row['fine_date'], "</td>",
                             "<td>", $row['amount'], "</td>",
-                            "<td>", $row['paid'], "</td>",
+                            "<td>", $row['paid'], "</td>";
+                            if($row['paid'] == "No") {
+                                echo "<td><button class='btn-sm btn-primary' style='width: 80px'><a class='text-light' href='payProcess.php?id=",$row['fine_id'],"'>Pay</a></button></td>";
+                            } else {
+                                echo "<td></td>";
+                            }
+                            
                             "</tr>";
                           }
                     } else {

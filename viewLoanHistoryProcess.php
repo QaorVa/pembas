@@ -64,6 +64,14 @@
 
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a href="logout.php" role="button" class="text-light">
+            <span>Logout</span>
+            <i class="fas fa-power-off"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
         <!-- Navbar Search -->
         <!-- <li class="nav-item">
         <a class="nav-link" data-widget="navbar-search" href="#" role="button">
@@ -181,8 +189,7 @@
           <i class="fas fa-th-large"></i>
         </a>
       </li> -->
-      </ul>
-    </nav>
+      
     <!-- /.navbar -->
 
     <!-- Main Sidebar Container -->
