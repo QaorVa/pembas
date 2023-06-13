@@ -308,6 +308,7 @@
                     "<th>Loan ID</th>",
                     "<th>Book</th>",
                     "<th>Borrowed Date</th>",
+                    "<th>Return Date</th>",
                     "<th>Returned Date</th>",
                     "<th></th>",
                     "</tr>";
@@ -319,9 +320,10 @@
                       "<td>", $row['Loan_ID'], "</td>",
                       "<td>", $row['Book'], "</td>",
                       "<td>", $row['Borrowed'], "</td>",
-                      "<td>", $row['Returned'], "</td>";
-                      if($row['Returned'] = null) {
-                        echo "<td><button class='btn-sm btn-primary'><a class='text-light' href='returnProcess.php'>Return</a></button></td>";
+                      "<td>", $row['Return_Date'], "</td>",
+                      "<td>", $row['Date_Returned'], "</td>";
+                      if($row['Date_Returned'] == null) {
+                        echo "<td><button class='btn-sm btn-primary'><a class='text-light' href='returnProcess.php?id=",$row['Loan_ID'],"'>Return</a></button></td>";
                       } else {
                         echo "<td></td>";
                       }
