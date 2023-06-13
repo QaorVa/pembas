@@ -21,7 +21,7 @@
     session_start();
     $readerId = $_SESSION['reader_id'];
     $isbn = $_POST['isbn'];
-    $days = 7;
+    $days = $_POST['days'];
     include "connection.php";
     $sql = "call loanBook($isbn, $readerId, $days)";
     $query = $db->query($sql);
