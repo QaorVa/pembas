@@ -46,7 +46,7 @@
           <div class="row">
             <div class="col-8">
               <p class="mb-0">
-                <a href="register.html" class="text-center">Register a new membership</a>
+                <a href="register.php" class="text-center">Register a new membership</a>
               </p>
             </div>
             <!-- /.col -->
