@@ -211,8 +211,8 @@ while ($row = $queryBooks->fetch_assoc()) {
                             "<td>", $row['amount'], "</td>",
                             "<td>", $row['paid'], "</td>";
                             if($row['paid'] == "No") {
-                                echo "<td><button class='btn-sm btn-primary' style='width: 80px'><a class='text-light' href='payProcess.php?id=",$row['fine_id'],"'>Pay</a></button></td>";
-                            } else {
+                                echo "<td><a class='text-light btn-sm btn-primary' href='payProcess.php?id=",$row['fine_id'],"'>Pay</a></td>";
+                            } else if($row['paid'] == "Yes"){
                                 echo "<td></td>";
                             }
                             
