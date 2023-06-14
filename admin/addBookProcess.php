@@ -8,7 +8,7 @@ $publisher = $_POST['publisher'];
 $year_published = $_POST['year_published'];
 $copies = $_POST['copies'];
 
-$cek_isbn = mysqli_query($db, "call readBook('$isbn')");
+$cek_isbn = mysqli_query($db, "SELECT isbn FROM book where isbn = $isbn");
 if (mysqli_num_rows($cek_isbn) > 0) {
     header("location:index.php?alert=duplikat");
 } else {
